@@ -6,6 +6,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func statusHandler(c *gin.Context) {
+// StatusHandler TODO
+// @Summary Shows the status of the application.
+// @Description TODO
+// @Accept json
+// @Produce json
+// @Router /status [get]
+func StatusHandler(c *gin.Context) {
 	c.Writer.WriteHeader(http.StatusOK)
 }

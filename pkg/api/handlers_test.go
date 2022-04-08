@@ -11,7 +11,7 @@ import (
 
 func TestStatusHandler(t *testing.T) {
 	r := gin.Default()
-	r.GET(statusPath, statusHandler)
+	r.GET(statusPath, StatusHandler)
 
 	req, _ := http.NewRequest(http.MethodGet, statusPath, nil)
 	rr := httptest.NewRecorder()
