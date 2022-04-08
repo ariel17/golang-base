@@ -1,1 +1,0 @@
-Should I rename this package to `server`?

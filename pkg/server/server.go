@@ -1,4 +1,4 @@
-package api
+package server
 
 import (
 	"fmt"
@@ -7,8 +7,8 @@ import (
 	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
 
-	"github.com/ariel17/golang-base/pkg/configs"
 	_ "github.com/ariel17/golang-base/api"
+	"github.com/ariel17/golang-base/pkg/configs"
 )
 
 const statusPath = "/status"

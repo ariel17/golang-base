@@ -8,9 +8,9 @@ import (
 )
 
 func TestIsProduction(t *testing.T) {
-	testCases := []struct{
-		name string
-		value string
+	testCases := []struct {
+		name     string
+		value    string
 		expected bool
 	}{
 		{"environment is production", productionEnv, true},
@@ -25,7 +25,7 @@ func TestIsProduction(t *testing.T) {
 			}()
 
 			os.Setenv(environmentKey, tc.value)
-			loadEnvs()
+			loadEnvsConfig()
 
 			result := IsProduction()
 			assert.Equal(t, tc.expected, result)

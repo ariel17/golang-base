@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ariel17/golang-base/pkg/api"
+	"github.com/ariel17/golang-base/pkg/server"
 )
 
 // @title           Swagger Example API
@@ -21,5 +21,5 @@ import (
 
 // @securityDefinitions.basic  BasicAuth
 func main() {
-	api.StartServer()
+	server.StartServer()
 }
