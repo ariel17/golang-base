@@ -2,8 +2,8 @@ package api
 
 import (
 	"fmt"
-	"log"
-	"net/http"
+
+	"github.com/gin-gonic/gin"
 
 	"github.com/ariel17/golang-base/pkg/configs"
 )
@@ -13,11 +13,10 @@ const statusPath = "/status"
 // StartServer creates a new instance of HTTP server with indicated handlers
 // configured and begins serving content.
 func StartServer() {
-	http.HandleFunc(statusPath, statusHandler)
-	s := http.Server{Addr: fmt.Sprintf(":%d", configs.APIPort)}
+	r := gin.Default()
+	r.GET(statusPath, statusHandler)
 
-	log.Printf("Listening new connections on :%d", configs.APIPort)
-	if err := s.ListenAndServe(); err != nil {
+	if err := r.Run(fmt.Sprintf(":%d", configs.GetPort())); err != nil {
 		panic(err)
 	}
 }

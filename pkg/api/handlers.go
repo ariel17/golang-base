@@ -1,9 +1,11 @@
 package api
 
-import "net/http"
+import (
+	"net/http"
 
+	"github.com/gin-gonic/gin"
+)
 
-func statusHandler(w http.ResponseWriter, _ *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "application/json")
+func statusHandler(c *gin.Context) {
+	c.Writer.WriteHeader(http.StatusOK)
 }

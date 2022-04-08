@@ -5,13 +5,17 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestStatusHandler(t *testing.T) {
+	r := gin.Default()
+	r.GET(statusPath, statusHandler)
+
 	req, _ := http.NewRequest(http.MethodGet, statusPath, nil)
 	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(statusHandler)
-	handler.ServeHTTP(rr, req)
+
+	r.ServeHTTP(rr, req)
 	assert.Equal(t, http.StatusOK, rr.Code)
 }
